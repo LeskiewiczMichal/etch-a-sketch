@@ -27,3 +27,8 @@ button {
     background-color: aqua;
     font-weight: 700;
 }
+
+#rgb-button {
+    background-color: orange;
+    color: blueviolet;
+}

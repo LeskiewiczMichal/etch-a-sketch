@@ -20,13 +20,13 @@ function grid(e = 16) {
             square.className = 'coloringGreed';
             square.style.border = '1px solid black';
             square.style.width = '100%';
-            square.addEventListener('mouseover', colorOneSquare);
+            square.addEventListener('mouseover', colorOneSquareBlack);
             row.appendChild(square);
         }
     })
 }
 
-function colorOneSquare(e) {
+function colorOneSquareBlack(e) {
     e.target.style.backgroundColor = 'black';
 }
 
@@ -48,4 +48,29 @@ function resetGrid() {
         chooseGridPrompt = prompt('Please select a number below 80');
     }
     grid(chooseGridPrompt);
+}
+
+// Color random RGB value button
+let randomColorButton = document.getElementById('rgb-button');
+
+randomColorButton.addEventListener('click', randomColor);
+
+// paint with random color after button click
+function randomColor(){
+    let squares = document.querySelectorAll('.coloringGreed');
+    squares.forEach((square) => {
+        square.removeEventListener('mouseover', colorOneSquareBlack);
+        square.addEventListener('mouseover', colorOneSquareRandom);
+    })
+}
+
+
+function colorOneSquareRandom(e) {
+    e.target.style.backgroundColor = random_rgba();
+}
+
+// select a random rgb color
+function random_rgba() {
+    let o = Math.round, r = Math.random, s = 255;
+    return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
 }
