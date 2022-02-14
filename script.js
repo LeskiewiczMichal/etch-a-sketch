@@ -56,10 +56,11 @@ let randomColorButton = document.getElementById('rgb-button');
 randomColorButton.addEventListener('click', randomColor);
 
 // paint with random color after button click
-function randomColor(){
+function randomColor() {
     let squares = document.querySelectorAll('.coloringGreed');
     squares.forEach((square) => {
         square.removeEventListener('mouseover', colorOneSquareBlack);
+        square.removeEventListener('mouseover', blackColor);
         square.addEventListener('mouseover', colorOneSquareRandom);
     })
 }
@@ -73,4 +74,19 @@ function colorOneSquareRandom(e) {
 function random_rgba() {
     let o = Math.round, r = Math.random, s = 255;
     return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
+}
+
+// Back to coloring with black
+let blackColorButton = document.getElementById('black-button');
+
+blackColorButton.addEventListener('click', blackColor);
+
+// paint with black after clicking
+function blackColor() {
+    let squares = document.querySelectorAll('.coloringGreed');
+    squares.forEach((square) => {
+        square.removeEventListener('mouseover', colorOneSquareBlack);
+        square.removeEventListener('mouseover', colorOneSquareRandom);
+        square.addEventListener('mouseover', colorOneSquareBlack);
+    })
 }

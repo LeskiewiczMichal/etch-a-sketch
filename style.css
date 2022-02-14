@@ -26,7 +26,15 @@ button {
     font-size: 15px;
     background-color: aqua;
     font-weight: 700;
+    margin-left: 5px;
+    margin-right: 5px;
 }
+
+#black-button {
+    background-color: black;
+    color: white;
+}
+
 
 #rgb-button {
     background-color: orange;
