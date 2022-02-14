@@ -30,3 +30,22 @@ function colorOneSquare(e) {
     e.target.style.backgroundColor = 'black';
 }
 
+let resetButton = document.getElementById('change-grid');
+
+resetButton.addEventListener('click', resetGrid);
+
+// remove grid and make a new one
+function resetGrid() {
+    const rowList = document.querySelectorAll('.row');
+
+    for (const elem of rowList) {
+        elem.remove();
+    }
+
+    // let user choose new grid size, can't be bigger than 80
+    let chooseGridPrompt = prompt('What size of grid do you want?');
+    while (chooseGridPrompt > 80) {
+        chooseGridPrompt = prompt('Please select a number below 80');
+    }
+    grid(chooseGridPrompt);
+}
