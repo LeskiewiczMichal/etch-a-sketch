@@ -1,6 +1,8 @@
 let container = document.getElementById('container');
 
-function grid(e) {
+// generate grid 
+grid();
+function grid(e = 16) {
     for (let i = 0; i < e; i++) {
         // create i rows in containers
         let row = document.createElement('div');
@@ -18,14 +20,13 @@ function grid(e) {
             square.className = 'coloringGreed';
             square.style.border = '1px solid black';
             square.style.width = '100%';
+            square.addEventListener('mouseover', colorOneSquare);
             row.appendChild(square);
         }
     })
 }
 
-let coloringGreed = document.getElementsByClassName('coloringGreed');
-
-for (let i = 0; i < coloringGreed; i++) {
-    coloringGreed[i].addEventListener('mouseover', )
+function colorOneSquare(e) {
+    e.target.style.backgroundColor = 'black';
 }
 
